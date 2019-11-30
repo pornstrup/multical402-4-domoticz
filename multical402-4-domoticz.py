@@ -30,11 +30,11 @@ import codecs
 
 reader = codecs.getreader("utf-8")
 
-domoip = "192.168.1.12"
+domoip = "192.168.0.70"
 domoport = "8080"
 debug = 1
 
-kamstrup_402_var = {                # Decimal Number in Command
+kamstrup_MC601_var = {                # Decimal Number in Command
  0x003C: "Heat Energy (E1)",         #60
  0x0050: "Power",                   #80
  0x0056: "Temp1",                   #86
@@ -308,15 +308,15 @@ if __name__ == "__main__":
     # kamstrup_402_var = int(kamstrup_402_var * 1000)
     
 print ("=======================================================================================")
-print ("Kamstrup Multical 402 serial optical data received: %s" % heat_timestamp)
-print ("Meter vendor/type: Kamstrup M402")
+print ("Kamstrup Multical 601 serial optical data received: %s" % heat_timestamp)
+print ("Meter vendor/type: Kamstrup MC601")
 print ("---------------------------------------------------------------------------------------")
 
-for i in kamstrup_402_var:
+for i in kamstrup_MC601_var:
     x,u = foo.readvar(i)
     r = 0
     
-    print("%-25s" % kamstrup_402_var[i], x, u)
+    print("%-25s" % kamstrup_MC601_var[i], x, u)
         
 
     for y in index:
